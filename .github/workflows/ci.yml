@@ -39,6 +39,11 @@ jobs:
       #   with:
       #     name: react-build
       #     path: dist/
+      - name: Check files
+        run: |
+          pwd
+          ls -la
+          find . -name "Dockerfile" -print
 
       - name: Build Docker image
         run: docker build -t my-react-app:${{ github.sha }} .
