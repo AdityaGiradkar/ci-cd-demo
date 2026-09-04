@@ -18,7 +18,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
           cache: npm
 
       # 3. Install dependencies
@@ -32,3 +32,10 @@ jobs:
       # 5. Build React application
       - name: Build application
         run: npm run build
+
+      # Upload the generated build
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: react-build
+          path: dist/
