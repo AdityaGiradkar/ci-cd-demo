@@ -10,9 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # # 1. Checkout repository
-      # - name: Checkout code
-      #   uses: actions/checkout@v4
+      # 1. Checkout repository
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       # # 2. Setup Node.js
       # - name: Setup Node.js
@@ -39,11 +39,12 @@ jobs:
       #   with:
       #     name: react-build
       #     path: dist/
-      - name: Check files
-        run: |
-          pwd
-          ls -la
-          find . -name "Dockerfile" -print
+      
+      # - name: Check files
+      #   run: |
+      #     pwd
+      #     ls -la
+      #     find . -name "Dockerfile" -print
 
       - name: Build Docker image
         run: docker build -t my-react-app:${{ github.sha }} .
